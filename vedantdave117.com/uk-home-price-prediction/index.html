@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from vedantdave117.com/uk-home-price-prediction/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Oct 2020 15:31:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="../xmlrpc.php">
+
+<title>UK (London city) Housing Price Prediction Data Integration &amp; Analysis &#8211; Vedant Dave</title>
+<script type="text/javascript">
+  WebFontConfig = {"typekit":{"id":"crh6ewm"}};
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = '../../s0.wp.com/wp-content/plugins/custom-fonts/js/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+	})();
+</script><style id="jetpack-custom-fonts-css">.wf-active h1, .wf-active h2, .wf-active h3, .wf-active h4, .wf-active h5, .wf-active h6{font-family:"calluna-1","calluna-2",serif;font-weight:400;font-style:normal}.wf-active h1{font-style:normal;font-weight:400}.wf-active h2{font-style:normal;font-weight:400}.wf-active h3{font-style:normal;font-weight:400}.wf-active h4{font-style:normal;font-weight:400}.wf-active h5{font-style:normal;font-weight:400}.wf-active h6{font-style:normal;font-weight:400}.wf-active .site-title{font-family:"calluna-1","calluna-2",serif;font-weight:400;font-style:normal}.wf-active .site-description{font-family:"calluna-1","calluna-2",serif;font-style:normal;font-weight:400}.wf-active .entry-author h2, .wf-active .entry-author h3{font-style:normal;font-weight:400}.wf-active .comments-title{font-style:normal;font-weight:400}.wf-active h2.widget-title{font-style:normal;font-weight:400}.wf-active .widget-grofile h4{font-style:normal;font-weight:400}.wf-active .entry-content div#jp-relatedposts h3.jp-relatedposts-headline, .wf-active .entry-content div.sharedaddy h3, .wf-active .entry-content div.sharedaddy h3.sd-title{font-family:"calluna-1","calluna-2",serif;font-weight:400;font-style:normal}.wf-active .entry-content div#jp-relatedposts h3.jp-relatedposts-headline em{font-weight:400;font-style:normal}.wf-active ul.products li.product .woocommerce-loop-category__title, .wf-active ul.products li.product .woocommerce-loop-product__title{font-family:"calluna-1","calluna-2",serif;font-style:normal;font-weight:400}@media (min-width: 60em){.wf-active h1{font-style:normal;font-weight:400}}@media (min-width: 60em){.wf-active h2{font-style:normal;font-weight:400}}@media (min-width: 60em){.wf-active h3{font-style:normal;font-weight:400}}@media (min-width: 60em){.wf-active h4{font-style:normal;font-weight:400}}@media (min-width: 60em){.wf-active h5{font-style:normal;font-weight:400}}@media (min-width: 60em){.wf-active h6{font-style:normal;font-weight:400}}@media (min-width: 60em){.wf-active .site-title{font-style:normal;font-weight:400}}@media (min-width: 60em){.wf-active .site-description{font-style:normal;font-weight:400}}</style>
+
+<!-- Async WordPress.com Remote Login -->
+<script id="wpcom_remote_login_js">
+var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.remove(); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[i].remove();
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com/" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '../remote-login4f98.html?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+						+ '//' + window.location.hostname;
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&amp;origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly92ZWRhbnRkYXZlMTE3LmNvbQ%3D%3D"
+		+ "&wpcomid=168645227"
+		+ "&time=1603466999";
+	document.body.appendChild( iframe );
+}, false );
+</script>
+<link rel='dns-prefetch' href='http://s2.wp.com/' />
+<link rel='dns-prefetch' href='http://s1.wp.com/' />
+<link rel='dns-prefetch' href='http://theprojectpages.wordpress.com/' />
+<link rel='dns-prefetch' href='http://s0.wp.com/' />
+<link rel='dns-prefetch' href='http://wordpress.com/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel="alternate" type="application/rss+xml" title="Vedant Dave &raquo; Feed" href="../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Vedant Dave &raquo; Comments Feed" href="../comments/feed/index.html" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1596548281h&ver=5.5-wpcom-48929"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0-1' href='https://s1.wp.com/_static/??-eJydkWGKAjEMhS+0newoiPtD9ixtJ9RoMy1NyjC3t86uIiruIoXCS9/3QlKYsvFpVBwVuJoca6BRYMo+sRGmiPOd6rzIBzzHIh1R4ICarT+aRT3YL95Qm3RYQnspCF9d3/XgKsUBXEwL7ootM4jOEf8Rs1A33e2cqppQaHg3olilMcgfuE+/2KprBwYSvdbMc/RmZefhW52z1bODcSCLEbnZXmE/X+JcLihi2s1U2ei+gcvKv3nXbz779Wa73q4OJ7REtdc=?cssminify=yes' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify {
+	text-align:justify;
+}
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--color--black:#000000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#ffffff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small:13;--wp--preset--font-size--normal:16;--wp--preset--font-size--medium:20;--wp--preset--font-size--large:36;--wp--preset--font-size--huge:42;}
+</style>
+<link rel='stylesheet' id='all-css-2-1' href='https://s2.wp.com/_static/??-eJyNjdEOwjAIRX/IikvsQx+M37JVonVQGqEx+3uJS8yyJ9+4B+4B3i1kqYbVgHto1O+lKmRhdhSozOhJd+To5AAFqljxtv6GdbFx2gPZDa1PQHJDtfEFagvhX5ejKtr6fyLJ89d/5csQ42lI55jS8wO62UeL?cssminify=yes' type='text/css' media='all' />
+<link crossorigin="anonymous" rel='stylesheet' id='lodestar_fonts_url-css'  href='https://fonts.googleapis.com/css?family=Work+Sans%3A800%7CKarla%3A400%2C400italic%2C700%2C700italic&amp;subset=latin%2Clatin-ext' media='all' />
+<link rel='stylesheet' id='all-css-4-1' href='https://s0.wp.com/_static/??-eJx9jcEKAjEMRH/IGgR3pQfxW7o11kqalCZF/HvrbRfR2wzzHgPP6qKwIRuU7ir1lFkhIWPLY/gR91F1ByvX7lhQofYFSK6oFhpkjgOJUpzai/DL2fyJI4nBsvCmuBuF3P6pDReSNGKCQa3qR7qU8+E4n7yfJj8/3hQsWKI=?cssminify=yes' type='text/css' media='all' />
+<link rel='stylesheet' id='print-css-5-1' href='../../s2.wp.com/wp-content/mu-plugins/global-print/global-printa1cf.css?m=1465851035h&amp;cssminify=yes' type='text/css' media='print' />
+<style id='jetpack-global-styles-frontend-style-inline-css'>
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<link rel='stylesheet' id='all-css-8-1' href='https://s0.wp.com/_static/??-eJxti8sKgCAQAH8oW6KHdoi+xcTUWF1pjX4/OnSIOg0DM3BmYSgVmwrEQ2Q8XEgMmbiIFXXYgb3eQ3IPa8Ncwf/FZIJGgeToLZ+peBstg+/AIS0a72COU9OPUg69atV2AWWKN+I=?cssminify=yes' type='text/css' media='all' />
+<script id='wpcom-actionbar-placeholder-js-extra'>
+var actionbardata = {"siteID":"168645227","siteName":"Vedant Dave","siteURL":"https:\/\/vedantdave117.com","icon":"<img alt='' src='https:\/\/theprojectpages.files.wordpress.com\/2020\/05\/cropped-profile_1.png?w=50' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/lodestar","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fvedantdave117.com%2Fuk-home-price-prediction%2F&signup_flow=account&domain=vedantdave117.com","themeURL":"https:\/\/wordpress.com\/theme\/lodestar\/","xhrURL":"https:\/\/vedantdave117.com\/wp-admin\/admin-ajax.php","nonce":"b7de9893ee","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"84d4806d55\" \/>","referer":"https:\/\/vedantdave117.com\/uk-home-price-prediction\/","canFollow":"","feedID":"103571541","statusMessage":"","customizeLink":"https:\/\/theprojectpages.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Ftheprojectpages.wordpress.com%2Fuk-home-price-prediction%2F","postID":"484","shortlink":"https:\/\/wp.me\/PbpCkj-7O","canEditPost":"","editLink":"https:\/\/wordpress.com\/page\/vedantdave117.com\/484","statsLink":"https:\/\/wordpress.com\/stats\/post\/484\/vedantdave117.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Lodestar","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fvedantdave117.com%2Fuk-home-price-prediction%2F&signup_flow=account&domain=vedantdave117.com\">Log in now.<\/a>","stats":"Stats"}};
+</script>
+<script type='text/javascript' src='../../s2.wp.com/_static/index6f89.html??/wp-includes/js/jquery/jquery.js,/wp-content/js/mobile-useragent-info.js?m=1558356653j'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://theprojectpages.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress.com" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='https://wp.me/PbpCkj-7O' />
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fvedantdave117.com%2Fuk-home-price-prediction%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fvedantdave117.com%2Fuk-home-price-prediction%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="UK (London city) Housing Price Prediction Data Integration &amp; Analysis" />
+<meta property="og:url" content="https://vedantdave117.com/uk-home-price-prediction/" />
+<meta property="og:description" content="Business Problem: After world war migration pattern changes and after that most people choose north America and European countries as new home. UK is one of the countries for migration and its data…" />
+<meta property="article:published_time" content="2019-12-13T14:46:16+00:00" />
+<meta property="article:modified_time" content="2020-05-10T23:52:49+00:00" />
+<meta property="og:site_name" content="Vedant Dave" />
+<meta property="og:image" content="https://theprojectpages.files.wordpress.com/2019/12/header.jpg?w=1200" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="900" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:site" content="@wordpressdotcom" />
+<meta name="twitter:text:title" content="UK (London city) Housing Price Prediction Data Integration &amp;&nbsp;Analysis" />
+<meta name="twitter:image" content="https://theprojectpages.files.wordpress.com/2019/12/header.jpg?w=640" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="search" type="application/opensearchdescription+xml" href="../osd.xml" title="Vedant Dave" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<meta name="application-name" content="Vedant Dave" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Experienced Data Analyst, Aspirant Machine Learning/ Deep Learning Engineer    " /><meta name="msapplication-task" content="name=Subscribe;action-uri=https://vedantdave117.com/feed/;icon-uri=https://theprojectpages.files.wordpress.com/2020/05/cropped-profile_1.png?w=16" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="description" content="Business Problem: After world war migration pattern changes and after that most people choose north America and European countries as new home. UK is one of the countries for migration and its data are available from UK government official report.Our stakeholder wants to know the special pattern or facility trend among the migrators and new&hellip;" />
+<link rel="icon" href="../../theprojectpages.files.wordpress.com/2020/05/cropped-profile_176ca.png?w=32" sizes="32x32" />
+<link rel="icon" href="../../theprojectpages.files.wordpress.com/2020/05/cropped-profile_19939.png?w=192" sizes="192x192" />
+<link rel="apple-touch-icon" href="../../theprojectpages.files.wordpress.com/2020/05/cropped-profile_1ad83.png?w=180" />
+<meta name="msapplication-TileImage" content="https://theprojectpages.files.wordpress.com/2020/05/cropped-profile_1.png?w=270" />
+		<link rel="stylesheet" id="custom-css-css" type="text/css" href="https://s0.wp.com/?custom-css=1&amp;csblog=bpCkj&amp;cscache=6&amp;csrev=44" />
+		</head>
+
+<body class="page-template page-template-page-templates page-template-full-width page-template-page-templatesfull-width-php page page-id-484 wp-embed-responsive customizer-styles-applied lodestar-footer-image has-top-content highlander-enabled highlander-light">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+		<div class="header-top">
+			<div class="wrap">
+				<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="Top Menu">
+	<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">Menu</button>
+	<div class="menu-vedant_dave-container"><ul id="top-menu" class="menu"><li id="menu-item-1225" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1225"><a href="../index.html">About Vedant</a></li>
+<li id="menu-item-1226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1226"><a href="../portfolio-117/index.html">Portfolio</a></li>
+<li id="menu-item-1321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1321"><a href="../education-certification-achievement/index.html">Education | Certification | Achievement | Social Contribution</a></li>
+<li id="menu-item-1227" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1227"><a href="../contact-me/index.html">Contact Me</a></li>
+</ul></div></nav><!-- #site-navigation -->
+											</div>
+		</div><!-- .header-top -->
+
+		
+<div class="custom-header">
+	
+			<div class="custom-header-image" style="background-image: url(../../theprojectpages.files.wordpress.com/2019/12/header0fa3.jpg?w=1600&amp;h=1200&amp;crop=1)">
+				<div class="site-branding">
+	<div class="wrap">
+
+		
+					<p class="site-title"><a href="../index.html" rel="home">Vedant Dave</a></p>
+		
+						<p class="site-description">Experienced Data Analyst, Aspirant Machine Learning/ Deep Learning Engineer    </p>
+		
+	</div><!-- .wrap -->
+</div><!-- .site-branding -->
+			</div>
+
+		
+</div><!-- .custom-header -->
+
+	</header>
+
+	<div id="content" class="site-content">
+<div class="wrap">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+
+			
+<article id="post-484" class="post-484 page type-page status-publish has-post-thumbnail hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">UK (London city) Housing Price Prediction Data Integration &amp;&nbsp;Analysis</h1>	</header>
+	<div class="entry-content">
+		
+<h3 class="has-text-color" style="color:#f20408;"><strong>Business Problem:</strong></h3>
+
+
+
+<ul><li>After world war migration pattern changes and after that most people choose north America and European countries as new home. UK is one of the countries for migration and its data are available from UK government official report.</li><li>Our stakeholder wants to know the special pattern or facility trend among the migrators and new buyer for purchase in London.</li><li>Main motto is to see the data insights of the data to increase business decisions and profit margin for real state investment.</li></ul>
+
+
+
+<h3 class="has-text-color" style="color:#f20408;"><strong>Data Collection and Understanding</strong></h3>
+
+
+
+<p>Here, we need to gather the data from the online available certified public data for the migration pattern, House buying scenario, Area codes &amp; map data and postal codes.</p>
+
+
+
+<p>For that we will use following data set.</p>
+
+
+
+<ul><li>HM Land registry Home price paid data (Country: UK)</li><li>Google Map Geocoding (Google Map data to represent the pattern on map (heat map))</li><li>Foursquare Location Data</li></ul>
+
+
+
+<h3 class="has-text-color" style="color:#f20408;"><strong>Tools</strong></h3>
+
+
+
+<p>Data hosting platform (IBM cloud, IBM cognitive LAB ovenware)</p>
+
+
+
+<p><strong>Data Processing</strong></p>
+
+
+
+<div class="wp-block-group has-pale-cyan-blue-background-color has-background"><div class="wp-block-group__inner-container">
+<h4 class="has-vivid-red-color has-text-color"><strong>Stage 1</strong></h4>
+
+
+
+<ul><li>Import data ( Use IBM DB2 import function)</li><li>Give column Name for understanding and unique ideal formatting and better merging.</li><li>Change date format to standard python standard</li><li>Filter data after 2016 and sort in ascending order.</li><li>Filter London city data and arrange them to street wise panda format</li><li>Merge data of street and price to get average price of houses for particulars streets.</li><li>Use Google Map (geocoding data) for latitude and longitude of streets.</li><li>Grouping latitude, longitude, street names and average prices for map presentation using folium.</li></ul>
+</div></div>
+
+
+
+<div class="wp-block-group has-pale-cyan-blue-background-color has-background"><div class="wp-block-group__inner-container">
+<h4 class="has-vivid-red-color has-text-color"><strong>Stage 2</strong></h4>
+
+
+
+<ul><li>Use Foursquare data set and format them to client id, client secret, version, latitude, longitude, radius and limitation of area)</li><li>Format structure of venues list and convert it to panda data frame format with name nearby venue.</li><li>Our standard format must be:</li><li>Street Name | Street Latitude| Street Longitude |Venue| Venue Latitude |Venue Longitude | Venue Category</li><li>Separate location venue from nearby Venue data frame.</li></ul>
+</div></div>
+
+
+
+<div class="wp-block-group has-pale-cyan-blue-background-color has-background"><div class="wp-block-group__inner-container">
+<h4 class="has-vivid-red-color has-text-color"><strong>Stage 3</strong></h4>
+
+
+
+<ul><li>Create nearby facility data with radius of 5 km surrounding data from foursquare API.</li><li>Give them same formatting as same as nearby venue function.</li><li>Get location facility from getnearby facility&nbsp; with street , latitude and longitude information.</li><li>Now for analysis grouping street wise and get count for each facility</li><li>The facilities are grocery store, supermarket, elementary schools, High schools, Hospitals.</li></ul>
+</div></div>
+
+
+
+<h2 class="has-text-color" style="color:#f20408;"><strong>Conclusion:</strong></h2>
+
+
+
+<p>People buy house near to facilized areas and average price for them are higher than other street areas.</p>
+
+
+
+<p>Most preferable faculties are Hospital, Elementary schools.</p>
+
+
+
+<h3 class="has-text-color" style="color:#f20408;"><strong>Attachments:</strong></h3>
+
+
+
+<ul><li><strong><a href="https://github.com/vedantdave77/PROJECT--UK_Price-Prediction_Capstone/blob/master/Coursera_Capstone_UK_Price_Index_VD_Python_Code.ipynb">Code File</a></strong></li><li><a href="https://github.com/vedantdave77/PROJECT--UK_Price-Prediction_Capstone/blob/master/Coursera_Capstone_UK_Price_Index_VD_Data.pdf"><strong>Business Problem Report</strong></a></li><li><a href="https://github.com/vedantdave77/PROJECT--UK_Price-Prediction_Capstone/blob/master/Coursera_Capstone_UK_Price_Index_VD_Business_Probelm.pdf"><strong>Opensource public data information </strong>Data</a></li><li><strong><a href="https://github.com/vedantdave77/PROJECT--UK_Price-Prediction_Capstone/blob/master/Coursera_Capstone_UK_Price_Index_VD_Final_Report.pdf">Final Report</a></strong></li><li><a href="https://github.com/vedantdave77/PROJECT--UK_Price-Prediction_Capstone/blob/master/Coursera_Capstone_UK_Price_Index_VD_Presentation.pdf"><strong>Presentation</strong></a></li></ul>
+
+
+
+<p></p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-484" class="share-twitter sd-button share-icon" href="index9a7b.html?share=twitter" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-484" class="share-facebook sd-button share-icon" href="index5a58.html?share=facebook" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-end"></li></ul></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-168645227-484-5f92f6f7d20ee' data-src='//widgets.wp.com/likes/index.html?ver=20200826#blog_id=168645227&amp;post_id=484&amp;origin=theprojectpages.wordpress.com&amp;obj_id=168645227-484-5f92f6f7d20ee&amp;domain=vedantdave117.com' data-name='like-post-frame-168645227-484-5f92f6f7d20ee'><h3 class='sd-title'>Like this:</h3><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height: 55px;'><span class='button'><span>Like</span></span> <span class="loading">Loading...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div></div>	</div>
+	<footer class="entry-footer">
+			</footer>
+</article><!-- #post-## -->
+
+		</main>
+	</div><!-- #primary -->
+	</div><!-- .wrap -->
+
+	</div>
+
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		
+<div class="site-info">
+	<div class="wrap">
+		<a href="https://wordpress.com/?ref=footer_custom_powered" rel="nofollow">Powered by WordPress.com</a>.
+		
+			</div><!-- .wrap -->
+</div><!-- .site-info -->
+	</footer>
+</div><!-- #page -->
+<!--  -->
+<script src='../../0.gravatar.com/js/gprofiles0ab9.js?ver=202043y' id='grofiles-cards-js'></script>
+<script id='wpgroho-js-extra'>
+var WPGroHo = {"my_hash":""};
+</script>
+<script type='text/javascript' src='../../s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgrohoc3b6.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+
+<script>
+window.addEventListener( "load", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "../../s0.wp.com/wp-content/mu-plugins/actionbar/actionbar61ea.css?v=20201002";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "../../s0.wp.com/wp-content/mu-plugins/actionbar/actionbar61ea.js?v=20201002";
+	script.defer = true;
+	document.body.appendChild( script );
+} );
+</script>
+
+	
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/vedantdave117.com\/uk-home-price-prediction\/":484};
+	</script>
+				<script id='comment-like-js-extra'>
+var comment_like_text = {"loading":"Loading..."};
+</script>
+<script id='sharing-js-js-extra'>
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJyVkstSwzAMRX8IVy3QBQuGb1EcxZHjF5adAF+Py2NoCVMmK3mudK5sybAkpWMoFApYgZ5m1pRedlZu4DKVohRPImjoj6x9rpRfv8KOw8y0/FtmqSTUk8ok/LZy9VUlVw0HAccTCTSo0oihd5SvFOvofZPUJ2RPdAeycLrWYQVdCL/BMlIbBaTagYs9ScEMKELlAw04s8HCMWzjjIsdum2MTJzaHcOkhqirqIFXuzt7Jfaeg+qag0cplNtJxZly5mb8o210KLktcTWjM+j0ddTgkDPIiJmD+Y4NevKPh+PD8e5+f9jf2nfjTfao'></script>
+<script type='text/javascript'>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+</script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='../wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>		<iframe src='https://widgets.wp.com/likes/master.html?ver=20200826#ver=20200826' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+		<div id='likes-other-gravatars'><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+<script src="../../stats.wp.com/w7f39.js?61" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'168645227','blog_tz':'-4','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'168645227','v':'wpcom','tz':'-4','user_id':'0','post':'484','subd':'theprojectpages'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1TaVhzUzFMbjdWNHpwZGhTayxPSUFCMGNrd29+Smw0TDhnZmRTK0hlRi9QSGh6bi9GXVhBJWIlZlR5U1JMLU8/MkNtblkvY1dTTWQzalZQT1kyPzNNMy12XUZlK1VEaF9ZMkRhXS9kfnpXU3U3LUtbLSZsakpoUnExOGVDJWhWOExpVWM2WkYuKz1XUnVaX0lsJmh3L2xxcHNhKzVFcDhfWklkZkImNjl5OFdzKy5CNHlwT1QvQmduQ2xKY1Z0Ty02ck02W2lPd1k5Vy9KUSszWDZSdiYvP0d8L0VfWTVRSz1walYtK0lLWFNTW3FmQ1hJbTZpR0xEaXRTWTA0cEVdLzlJakY='}]);
+_stq.push([ 'clickTrackerInit', '168645227', '484' ]);
+	</script>
+<noscript><img src="../../pixel.wp.com/b0b80.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+
+<!-- Mirrored from vedantdave117.com/uk-home-price-prediction/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Oct 2020 15:31:47 GMT -->
+</html>

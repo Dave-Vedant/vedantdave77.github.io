@@ -1,0 +1,56 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 23 Oct 2020 11:29:02 at https://vedantdave117.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://vedantdave117.com/ -O1 "C:\Users\HP\Desktop\own website" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+11:29:15	Error: 	"Method Not Allowed" (405) at link https://vedantdave117.com/xmlrpc.php (from https://vedantdave117.com/)
+11:31:16	Warning: 	Found for https://vedantdave117.com/?share=twitter
+11:31:16	Warning: 	File has moved from https://vedantdave117.com/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=About%20Vedant&url=https%3A%2F%2Fvedantdave117.com%2F
+11:31:16	Warning: 	Found for https://vedantdave117.com/?share=facebook
+11:31:16	Warning: 	File has moved from https://vedantdave117.com/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2F&t=About%20Vedant
+11:31:48	Warning: 	Found for https://vedantdave117.com/portfolio-117/?share=twitter
+11:31:48	Warning: 	File has moved from https://vedantdave117.com/portfolio-117/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&url=https%3A%2F%2Fvedantdave117.com%2Fportfolio-117%2F
+11:31:49	Warning: 	Found for https://vedantdave117.com/portfolio-117/?share=facebook
+11:31:49	Warning: 	File has moved from https://vedantdave117.com/portfolio-117/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Fportfolio-117%2F&t=
+11:31:51	Warning: 	Found for https://vedantdave117.com/education-certification-achievement/?share=twitter
+11:31:51	Warning: 	File has moved from https://vedantdave117.com/education-certification-achievement/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&url=https%3A%2F%2Fvedantdave117.com%2Feducation-certification-achievement%2F
+11:31:51	Warning: 	Found for https://vedantdave117.com/education-certification-achievement/?share=facebook
+11:31:51	Warning: 	File has moved from https://vedantdave117.com/education-certification-achievement/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Feducation-certification-achievement%2F&t=
+11:31:52	Warning: 	Found for https://vedantdave117.com/contact-me/?share=twitter
+11:31:52	Warning: 	File has moved from https://vedantdave117.com/contact-me/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=Contact%20Me&url=https%3A%2F%2Fvedantdave117.com%2Fcontact-me%2F
+11:31:52	Warning: 	Found for https://vedantdave117.com/contact-me/?share=facebook
+11:31:52	Warning: 	File has moved from https://vedantdave117.com/contact-me/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Fcontact-me%2F&t=Contact%20Me
+11:31:52	Warning: 	Found for https://vedantdave117.com/instacart-market-data-analysis-machine-learning-modeling-lgb/?share=twitter
+11:31:52	Warning: 	File has moved from https://vedantdave117.com/instacart-market-data-analysis-machine-learning-modeling-lgb/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=INSTACART%20MARKET%20ANALYSIS%20and%20ML%20Modeling%20%28lgb%20-%20prediction%20algo.%29&url=https%3A%2F%2Fvedantdave117.com%2Finstacart-market-data-analysis-machine-learning-modeling-lgb%2F
+11:31:52	Warning: 	Found for https://vedantdave117.com/instacart-market-data-analysis-machine-learning-modeling-lgb/?share=facebook
+11:31:52	Warning: 	File has moved from https://vedantdave117.com/instacart-market-data-analysis-machine-learning-modeling-lgb/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Finstacart-market-data-analysis-machine-learning-modeling-lgb%2F&t=INSTACART%20MARKET%20ANALYSIS%20and%20ML%20Modeling%20%28lgb%20-%20prediction%20algo.%29
+11:31:52	Warning: 	Found for https://vedantdave117.com/sentimental-analytics-with-neural-network/?share=twitter
+11:31:52	Warning: 	File has moved from https://vedantdave117.com/sentimental-analytics-with-neural-network/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=NEURAL%20NETWORK%20FOR%20SENTIMENTAL%20ANALYSIS&url=https%3A%2F%2Fvedantdave117.com%2Fsentimental-analytics-with-neural-network%2F
+11:31:52	Warning: 	Found for https://vedantdave117.com/sentimental-analytics-with-neural-network/?share=facebook
+11:31:52	Warning: 	File has moved from https://vedantdave117.com/sentimental-analytics-with-neural-network/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Fsentimental-analytics-with-neural-network%2F&t=NEURAL%20NETWORK%20FOR%20SENTIMENTAL%20ANALYSIS
+11:31:54	Warning: 	Found for https://vedantdave117.com/5-financial-fraud-advanced-analysis/?share=twitter
+11:31:54	Warning: 	File has moved from https://vedantdave117.com/5-financial-fraud-advanced-analysis/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=FINANCIAL%20FRAUD%20ADVANCED%20ANALYTICS%20%26%20ML-MODELING&url=https%3A%2F%2Fvedantdave117.com%2F5-financial-fraud-advanced-analysis%2F
+11:31:54	Warning: 	Found for https://vedantdave117.com/5-financial-fraud-advanced-analysis/?share=facebook
+11:31:54	Warning: 	File has moved from https://vedantdave117.com/5-financial-fraud-advanced-analysis/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2F5-financial-fraud-advanced-analysis%2F&t=FINANCIAL%20FRAUD%20ADVANCED%20ANALYTICS%20%26%20ML-MODELING
+11:31:54	Warning: 	Found for https://vedantdave117.com/research-fs-effect-on-ml-impovement/?share=twitter
+11:31:54	Warning: 	File has moved from https://vedantdave117.com/research-fs-effect-on-ml-impovement/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=Researching%3A-%20Effect%20of%20feature%20selection%20on%20Machine%20learning%20performance%20%5Baccuracy%2C%20compexity%20%7Btime%2C%20computation%7D&url=https%3A%2F%2Fvedantdave117.com%2Fresearch-fs-effect-on-ml-impovement%2F
+11:31:54	Warning: 	Found for https://vedantdave117.com/research-fs-effect-on-ml-impovement/?share=facebook
+11:31:54	Warning: 	File has moved from https://vedantdave117.com/research-fs-effect-on-ml-impovement/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Fresearch-fs-effect-on-ml-impovement%2F&t=Researching%3A-%20Effect%20of%20feature%20selection%20on%20Machine%20learning%20performance%20%5Baccuracy%2C%20compexity%20%7Btime%2C%20computation%7D
+11:31:54	Warning: 	Found for https://vedantdave117.com/bank-loan-data-analysis-future-interest-prediction/?share=twitter
+11:31:54	Warning: 	File has moved from https://vedantdave117.com/bank-loan-data-analysis-future-interest-prediction/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=Banking%20Loan%20Pending%20amount%20Calculations%20%26%20IR%20distribution%20Prediction%20%28Power%20BI-DAX%29&url=https%3A%2F%2Fvedantdave117.com%2Fbank-loan-data-analysis-future-interest-prediction%2F
+11:31:54	Warning: 	Found for https://vedantdave117.com/bank-loan-data-analysis-future-interest-prediction/?share=facebook
+11:31:54	Warning: 	File has moved from https://vedantdave117.com/bank-loan-data-analysis-future-interest-prediction/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Fbank-loan-data-analysis-future-interest-prediction%2F&t=Banking%20Loan%20Pending%20amount%20Calculations%20%26%20IR%20distribution%20Prediction%20%28Power%20BI-DAX%29
+11:31:54	Warning: 	Found for https://vedantdave117.com/uk-home-price-prediction/?share=twitter
+11:31:54	Warning: 	File has moved from https://vedantdave117.com/uk-home-price-prediction/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=UK%20%28London%20city%29%20Housing%20Price%20Prediction%20Data%20Integration%20%26%20Analysis&url=https%3A%2F%2Fvedantdave117.com%2Fuk-home-price-prediction%2F
+11:31:55	Warning: 	Found for https://vedantdave117.com/uk-home-price-prediction/?share=facebook
+11:31:55	Warning: 	File has moved from https://vedantdave117.com/uk-home-price-prediction/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Fuk-home-price-prediction%2F&t=UK%20%28London%20city%29%20Housing%20Price%20Prediction%20Data%20Integration%20%26%20Analysis
+11:31:55	Warning: 	Found for https://vedantdave117.com/data-imputation-method-self-organizing-map/?share=twitter
+11:31:55	Warning: 	File has moved from https://vedantdave117.com/data-imputation-method-self-organizing-map/?share=twitter to https://twitter.com/intent/tweet?via=wordpressdotcom&text=UNSUPERVISED%20NEURAL-NET%20%20APPRAOCH%20TO%20SURVEY%20MISSING%20DATA%20IMPUTATION%20%E2%80%93%20%28Self-Organizing%20Map%29&url=https%3A%2F%2Fvedantdave117.com%2Fdata-imputation-method-self-organizing-map%2F
+11:31:55	Warning: 	Found for https://vedantdave117.com/data-imputation-method-self-organizing-map/?share=facebook
+11:31:55	Warning: 	File has moved from https://vedantdave117.com/data-imputation-method-self-organizing-map/?share=facebook to https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvedantdave117.com%2Fdata-imputation-method-self-organizing-map%2F&t=UNSUPERVISED%20NEURAL-NET%20%20APPRAOCH%20TO%20SURVEY%20MISSING%20DATA%20IMPUTATION%20%E2%80%93%20%28Self-Organizing%20Map%29
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 53 seconds : 258 links scanned, 231 files written (75223909 bytes overall) [74329417 bytes received at 429649 bytes/sec], 1415991 bytes transferred using HTTP compression in 45 files, ratio 27%, 4.0 requests per connection
+(1 errors, 44 warnings, 0 messages)
